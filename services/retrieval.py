@@ -1,20 +1,9 @@
 import json
-import faiss
-import numpy as np
 
 CATALOG_PATH = "data/shl_product_catalog.json"
-INDEX_PATH = "data/faiss.index"
-EMBEDDING_PATH = "data/embeddings.npy"
 
-# Load catalog
 with open(CATALOG_PATH, "r", encoding="utf-8") as f:
     catalog = json.load(f)
-
-# Load FAISS index
-index = faiss.read_index(INDEX_PATH)
-
-# Load precomputed embeddings only
-embeddings = np.load(EMBEDDING_PATH)
 
 
 def search(query, top_k=10):
