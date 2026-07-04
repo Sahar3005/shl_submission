@@ -2,12 +2,16 @@
 import json
 import faiss
 import numpy as np
+from functools import lru_cache
 from sentence_transformers import SentenceTransformer
 
 CATALOG_PATH = "data/shl_product_catalog.json"
 INDEX_PATH = "data/faiss.index"
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+
+@lru_cache()
+def get_model():
+    return SentenceTransformer("all-MiniLM-L6-v2")
 
 # Load catalog
 with open(CATALOG_PATH, "r", encoding="utf-8") as f:
@@ -21,8 +25,7 @@ def search(query, top_k=10):
     """
     Search top matching SHL assessments
     """
-
-    embedding = model.encode([query])
+    embedding = get_model().encode([query])
 
     distances, indices = index.search(
         np.array(embedding).astype("float32"),

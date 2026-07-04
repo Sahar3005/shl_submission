@@ -24,12 +24,12 @@ def build_embeddings():
     for item in catalog:
 
         text = f"""
-        {item.get("name","")}
-        {item.get("description","")}
-        {' '.join(item.get("job_levels",[]))}
-        {' '.join(item.get("languages",[]))}
-        {' '.join(item.get("test_types",[]))}
-        """
+{item.get("name","")}
+{item.get("description","")}
+{' '.join(item.get("job_levels", []))}
+{' '.join(item.get("languages", []))}
+{' '.join(item.get("keys", []))}
+"""
 
         texts.append(text)
 
