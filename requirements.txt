@@ -1,5 +1,5 @@
 fastapi
-guvicorn[standard]
+uvicorn[standard]
 
 faiss-cpu
 numpy

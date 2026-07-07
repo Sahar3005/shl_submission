@@ -224,11 +224,3 @@ Recommendation Response
 - Conversation history support
 
 ---
-
-## Author
-
-**Sadaf Ansari**
-
-B.Tech Artificial Intelligence & Machine Learning
-
-GitHub: https://github.com/YOUR_USERNAME
